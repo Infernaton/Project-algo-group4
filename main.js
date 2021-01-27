@@ -14,14 +14,29 @@ function help(){
     console.log("   'search_date': Search for the movies with the specified Date in the current file.\n            'node main.js –action search_date <filePath> <year> <True|False>'");
     console.log("   'search_key_word': Search for key word in the description's movie in the specified file.\n            'node main.js –action search_key_word <filePath <key_word> <genre>'");
 }
-function printError(){
-    console.log("Error Synthax.")
-    console.log("No action specified.")
+function printError(type){
+    switch(type){
+        case 'syntax':
+            console.log("Error Syntax.");
+            break;
+        case 'missing':
+            console.log("Missing Argument.");
+            break;
+        default:
+            console.log("Error.")
+    }
+        
 }
 
-let args = process.argv.splice(2);
+let args = process.argv.splice(2); //To remove useless args like the path file of node.exe and main.js
 console.log(args);
+
 if (args[0]== '-action'){
+    let entry = args[2];
+    if (entry == ""){
+        printError('missing');
+    }
+
     switch (args[1]) {
         case 'transform':
             console.log("Transforming, in specified file, the title movie.");
@@ -39,10 +54,10 @@ if (args[0]== '-action'){
             console.log("Search for key word in the description's movie in the specified file.")
             break;   
         default:
-            console.log("Action not found")
+            printError('missing')
     }
 }else if(args[0] == '-help'){
     help();
 }else{
-    printError();
+    printError('syntax');
 }
