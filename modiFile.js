@@ -14,5 +14,17 @@ module.exports = {
             if(err) return console.error(err);
             console.log('Done.');
             })
+    },
+    transform: function(fileName, fileOut){
+        data = this.read(fileName, function(err, data){
+            for(i=0; i < data.length; i++){
+                year = ~~(data[i].release_date/(3600*24*365)) + 1970; //To transform the value in second to Year
+                if (year != null){
+                    data[i].title += ' (' + year +')';
+                }
+            }
+            console.log(data[0])
+            this.write(fileOut, data);
+        });
     }
 }

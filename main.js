@@ -3,6 +3,7 @@
 //console.log(hello);
 let toLog = require('./log');
 let search = require('./searchKeyWord');
+let file = require('./modiFile');
 
 console.log(""); //Used to jump the first line
 
@@ -33,7 +34,7 @@ function printError(type,msg){
 }
 
 let args = process.argv.splice(2); //To remove useless args like the path file of node.exe and main.js
-//let file = require('modiFile');
+
 console.log(args);
 console.log('');
 
@@ -53,6 +54,7 @@ if (args[0]== '-action'){
                 }else{
                     console.log("Transforming, in specified file, the title movie.");
                     toLog.log();
+                    file.transform(entry, out);
                 }
                 break;
 
