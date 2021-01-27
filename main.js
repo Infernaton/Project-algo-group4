@@ -1,7 +1,8 @@
 //let say =  require('./module');
 //let hello = say.hello();
 //console.log(hello);
-let toLog = require('./log')
+let toLog = require('./log');
+let search = require('./searchKeyWord');
 
 console.log(""); //Used to jump the first line
 
@@ -96,7 +97,7 @@ if (args[0]== '-action'){
                 }else{
                     console.log("Search for key word in the description's movie in the specified file.");
                     toLog.log()
-                    //Add here the function to call
+                    search.keyWord(entry, key_word, genre);
                 }
                 break;
 
