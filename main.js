@@ -17,6 +17,7 @@ function help(){
     console.log("   'search_key_word': Search for key word in the description's movie in the specified file.\n            'node main.js –action search_key_word <filePath <key_word> <genre>'");
 }
 function printError(type,msg){
+    //To specified the different error that the user is written
     switch(type){
         case 'syntax':
             console.log("Error Syntax. "+msg);
@@ -34,7 +35,7 @@ console.log(args);
 console.log('');
 
 if (args[0]== '-action'){
-    let entry = args[2];
+    let entry = args[2]; //To know the files entry where the movies are
     if (entry == null){
         printError('missing',"No Entry Specified");
     }else{
@@ -42,20 +43,40 @@ if (args[0]== '-action'){
             case 'transform':
                 let out = args[3];
                 if (out == null){
-                    printError("missing","No exit found")
+                    printError("missing","No exit found");
                 }else{
                     console.log("Transforming, in specified file, the title movie.");
                     //Add here the function to call
                 }
                 break;
             case 'sort_date':
-                console.log("Sorting by Date the specified file content.");
+                let out = args[3];
+                if (out == null){
+                    printError("missing","No exit found");
+                }else{
+                    console.log("Sorting by Date the specified file content.");
+                    //Add here the function to call
+                }
                 break;
             case 'sort_title':
-                console.log("Sorting by Title the specified file content.");
+                let out = args[3];
+                if (out == null){
+                    printError("missing","No exit found");
+                }else{
+                    console.log("Sorting by Title the specified file content.");
+                    //Add here the function to call
+                }
                 break;
             case 'search_date':
-                console.log("Search for the movies with the specified Date in the current file.");
+                let year = args[3];
+                let sorted = args[4];
+                if (out == null){
+                    printError("missing","Please, specified a date to search to");
+                }else if(sorted == null){
+                    printError("missing","");
+                }else{
+                    console.log("Search for the movies with the specified Date in the current file.");
+                }
                 break;
             case 'search_key_word':
                 console.log("Search for key word in the description's movie in the specified file.");
