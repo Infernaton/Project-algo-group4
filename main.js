@@ -31,6 +31,7 @@ function printError(type,msg){
 }
 
 let args = process.argv.splice(2); //To remove useless args like the path file of node.exe and main.js
+//let file = require('modiFile');
 console.log(args);
 console.log('');
 
@@ -39,8 +40,10 @@ if (args[0]== '-action'){
     let out;
     if (entry == null){
         printError('missing',"No Entry Specified");
+
     }else{
         switch (args[1]) {
+
             case 'transform':
                 out = args[3];
                 if (out == null){
@@ -50,6 +53,7 @@ if (args[0]== '-action'){
                     //Add here the function to call
                 }
                 break;
+
             case 'sort_date':
                 out = args[3];
                 if (out == null){
@@ -59,6 +63,7 @@ if (args[0]== '-action'){
                     //Add here the function to call
                 }
                 break;
+
             case 'sort_title':
                 out = args[3];
                 if (out == null){
@@ -68,6 +73,7 @@ if (args[0]== '-action'){
                     //Add here the function to call
                 }
                 break;
+
             case 'search_date':
                 let year = args[3];
                 let sorted = args[4];
@@ -78,6 +84,7 @@ if (args[0]== '-action'){
                     //Add here the function to call
                 }
                 break;
+
             case 'search_key_word':
                 let key_word = args[3];
                 let genre = args[4];
@@ -87,11 +94,13 @@ if (args[0]== '-action'){
                     console.log("Search for key word in the description's movie in the specified file.");
                     //Add here the function to call
                 }
-                break;   
+                break;
+
             default:
                 printError('missing',"Not valid Argument found for -action");
         }
     }
+    
 }else if(args[0] == '-help'){
     help();
 }else{

@@ -6,8 +6,3 @@ module.exports = {
         return "goodby"
     }
 }
-
-
-/*export function hello(){
-    return "hello";
-}*/
