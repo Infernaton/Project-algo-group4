@@ -2,6 +2,7 @@ file = require("./modiFile");
 
 module.exports = {
     keyWord: function(fileName, word, genre){
+        let result = [];
         data = file.read(fileName, function(err, data){
             for (i=0; i<=data.length-1; i++){
                 let movieGenre = data[i].genres;
