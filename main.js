@@ -36,12 +36,13 @@ console.log('');
 
 if (args[0]== '-action'){
     let entry = args[2]; //To know the files entry where the movies are
+    let out;
     if (entry == null){
         printError('missing',"No Entry Specified");
     }else{
         switch (args[1]) {
             case 'transform':
-                let out = args[3];
+                out = args[3];
                 if (out == null){
                     printError("missing","No exit found");
                 }else{
@@ -50,7 +51,7 @@ if (args[0]== '-action'){
                 }
                 break;
             case 'sort_date':
-                let out = args[3];
+                out = args[3];
                 if (out == null){
                     printError("missing","No exit found");
                 }else{
@@ -59,7 +60,7 @@ if (args[0]== '-action'){
                 }
                 break;
             case 'sort_title':
-                let out = args[3];
+                out = args[3];
                 if (out == null){
                     printError("missing","No exit found");
                 }else{
@@ -70,16 +71,22 @@ if (args[0]== '-action'){
             case 'search_date':
                 let year = args[3];
                 let sorted = args[4];
-                if (out == null){
-                    printError("missing","Please, specified a date to search to");
-                }else if(sorted == null){
+                if (year == null || sorted == null){
                     printError("missing","");
                 }else{
                     console.log("Search for the movies with the specified Date in the current file.");
+                    //Add here the function to call
                 }
                 break;
             case 'search_key_word':
-                console.log("Search for key word in the description's movie in the specified file.");
+                let key_word = args[3];
+                let genre = args[4];
+                if (key_word == null || genre == null){
+                    printError("missing","")
+                }else{
+                    console.log("Search for key word in the description's movie in the specified file.");
+                    //Add here the function to call
+                }
                 break;   
             default:
                 printError('missing',"Not valid Argument found for -action");
