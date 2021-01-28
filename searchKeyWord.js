@@ -27,7 +27,7 @@ module.exports = {
             console.log(result);
             if (savePicture != ""){
                 //By default savePicture = "", so if the value isn't modify, it means there no need to save the picture
-                let toWrite = result.title + " : " + result.poster
+                let toWrite = [{"title": result.title, "poster": result.poster}]
                 file.write(savePicture,toWrite)
             }
 

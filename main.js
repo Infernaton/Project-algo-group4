@@ -18,7 +18,8 @@ function help(){
     console.log("   'sort_date': Sorting by Date the specified file content.\n            'node main.js –action sort_date <entryFilePath> <outFilePath>'");
     console.log("   'sort_title': Sorting by Title the specified file content.\n            'node main.js –action sort_titre <entryFilePath> <outFilePath>'");
     console.log("   'search_date': Search for the movies with the specified Date in the current file.\n            'node main.js –action search_date <filePath> <year> <True|False>'");
-    console.log("   'search_key_word': Search for key word in the description's movie in the specified file.\n            'node main.js –action search_key_word <filePath <key_word> <genre>'");
+    console.log("   'search_key_word': Search for key word in the description's movie in the specified file.\n            'node main.js –action search_key_word <filePath> <key_word> <genre>'");
+    console.log("   'color': Sumarise what is the average color amongst picture's movie list in a file (with a limit of 170 films).\n           'node main.js -action color <filePath>")
 }
 function printError(type,msg){
     //To specified the different error that the user is written
