@@ -9,14 +9,10 @@ module.exports = {
         for(let i = 0; i < movies.length; i++) {
             let searchYear = movies[i].release_date
             if (searchYear != null) {
-                console.log(searchYear)
-                //console.log(movies)
-                    if(searchYear > year) {
-                        result.push(movies[i].title)
-                        console.log("Find")
-                    }
+                if(searchYear > year) {
+                    result.push(movies[i].title)
+                }
             } 
-            return "error"
         }
         console.log(result)
     }     

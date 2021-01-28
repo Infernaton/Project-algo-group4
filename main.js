@@ -2,6 +2,7 @@ let toLog = require('./log');
 let search = require('./searchKeyWord');
 let file = require('./modiFile');
 let sort = require('./sortData');
+let searchDate = require("./search_film");
 //Import of all function we need
 
 console.log(""); //Used to jump the first line
@@ -93,7 +94,7 @@ if (args[0] == '-save'){
                 }else{
                     //If no error, then we can apply the function
                     toLog.log()
-                    //Add here the function to call
+                    searchDate.toSearch(entry,year);
                 }
                 break;
 
