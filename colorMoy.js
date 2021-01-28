@@ -14,10 +14,24 @@ module.exports = {
                     for(x=0; x<p_length;x++){
                         for(y=0; y<p_height; y++){
                             currentColor = image.getPixelColor(x,y)
+                            allColor.push(currentColor);
                         }
                     }
                 });
             }
+            let red = 0;
+            let blue = 0;
+            let green = 0;
+            let alpha = 0;
+            for(i=0;i< allColor.length; i++){
+                //Calcul of the average color
+                red =+ allColor[i][0];
+                green =+ allColor[i][1];
+                blue =+ allColor[i][2];
+                alpha =+ allColor[i][3];
+                let averageColor = [red/allColor.length, green/allColor.length, blue/allColor.length, alpha/allColor.length];
+            }
+            console.log(averageColor);
         });
     }
 }
