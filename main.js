@@ -57,7 +57,7 @@ if (args[0] == '-save'){
                 if (out == null){
                     printError("missing","No exit found");
                 }else{
-                    console.log("Transforming, in specified file, the title movie.");
+                    //If no error, then we can apply the function
                     toLog.log();
                     file.transform(entry, out);
                 }
@@ -68,7 +68,7 @@ if (args[0] == '-save'){
                 if (out == null){
                     printError("missing","No exit found");
                 }else {
-                    console.log("Sorting by Date the specified file content.");
+                    //If no error, then we can apply the function
                     toLog.log()
                     sort.date(entry, out)
                 }
@@ -79,7 +79,7 @@ if (args[0] == '-save'){
                 if (out == null){
                     printError("missing","No exit found");
                 }else{
-                    console.log("Sorting by Title the specified file content.");
+                    //If no error, then we can apply the function
                     toLog.log()
                     //Add here the function to call
                 }
@@ -91,7 +91,7 @@ if (args[0] == '-save'){
                 if (year == null || sorted == null){
                     printError("missing","");
                 }else{
-                    console.log("Search for the movies with the specified Date in the current file.");
+                    //If no error, then we can apply the function
                     toLog.log()
                     //Add here the function to call
                 }
@@ -103,7 +103,7 @@ if (args[0] == '-save'){
                 if (key_word == null || genre == null){
                     printError("missing","")
                 }else{
-                    console.log("Search for key word in the description's movie in the specified file.");
+                    //If no error, then we can apply the function
                     toLog.log()
                     search.keyWord(entry, key_word, genre);
                 }
