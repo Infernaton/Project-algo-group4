@@ -1,7 +1,7 @@
 file = require("./modiFile");
 
 module.exports = {
-    keyWord: function(fileName, word, genre){
+    keyWord: function(fileName, word, genre, savePicture){
         let result = [];
         data = file.read(fileName, function(err, data){
             for (i=0; i<=data.length-1; i++){
@@ -19,8 +19,14 @@ module.exports = {
                         }
                     }
                 }
-            } 
-            console.log(recent(result));
+            }
+            result = recent(result)
+            console.log(result);
+            if (savePicture != ""){
+                //By default savePicture = "", so if the value isn't modify, it means there no need to save the picture
+                let toWrite = result.title + " : " + result.poster
+                file.write(savePicture,toWrite)
+            }
         });
         //All the code between the parenthesis is playing when the reading of the file is complete
     },

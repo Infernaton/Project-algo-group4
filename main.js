@@ -1,9 +1,8 @@
-//let say =  require('./module');
-//let hello = say.hello();
-//console.log(hello);
 let toLog = require('./log');
 let search = require('./searchKeyWord');
 let file = require('./modiFile');
+let sort = require('./sortData');
+//Import of all function we need
 
 console.log(""); //Used to jump the first line
 
@@ -34,75 +33,85 @@ function printError(type,msg){
 }
 
 let args = process.argv.splice(2); //To remove useless args like the path file of node.exe and main.js
+let indent = 0;
+let savePicture = "";
 
 console.log(args);
 console.log('');
 
-if (args[0]== '-action'){
-    let entry = args[2]; //To know the files entry where the movies are
+if (args[0] == '-save'){
+    indent = 2; // Because '-save' is optional and it placed before the 'action', we need to indent all the position of the args
+    savePicture = args[1];
+
+} if (args[0+indent]== '-action'){
+    let entry = args[2+indent]; //To know the files entry where the movies are
     let out;
     if (entry == null){
         printError('missing',"No Entry Specified");
 
     }else{
-        switch (args[1]) {
+        switch (args[1+indent]) {
 
             case 'transform':
-                out = args[3];
+                out = args[3+indent];
                 if (out == null){
                     printError("missing","No exit found");
                 }else{
-                    console.log("Transforming, in specified file, the title movie.");
+                    //If no error, then we can apply the function
                     toLog.log();
                     file.transform(entry, out);
                 }
                 break;
 
             case 'sort_date':
-                out = args[3];
+                out = args[3+indent];
                 if (out == null){
                     printError("missing","No exit found");
                 }else {
-                    console.log("Sorting by Date the specified file content.");
+                    //If no error, then we can apply the function
                     toLog.log()
+                    sort.date(entry, out)
                 }
                 break;
 
             case 'sort_title':
-                out = args[3];
+                out = args[3+indent];
                 if (out == null){
                     printError("missing","No exit found");
                 }else{
-                    console.log("Sorting by Title the specified file content.");
+                    //If no error, then we can apply the function
                     toLog.log()
-                    //Add here the function to call
+                    sort.title(entry,out)
                 }
                 break;
 
             case 'search_date':
-                let year = args[3];
-                let sorted = args[4];
+                let year = args[3+indent];
+                let sorted = args[4+indent];
                 if (year == null || sorted == null){
                     printError("missing","");
                 }else{
-                    console.log("Search for the movies with the specified Date in the current file.");
+                    //If no error, then we can apply the function
                     toLog.log()
                     //Add here the function to call
                 }
                 break;
 
             case 'search_key_word':
-                let key_word = args[3];
-                let genre = args[4];
+                let key_word = args[3+indent];
+                let genre = args[4+indent];
                 if (key_word == null || genre == null){
                     printError("missing","")
                 }else{
-                    console.log("Search for key word in the description's movie in the specified file.");
+                    //If no error, then we can apply the function
                     toLog.log()
-                    search.keyWord(entry, key_word, genre);
+                    search.keyWord(entry, key_word, genre, savePicture);
                 }
                 break;
-
+            case 'color':
+                toLog.log();
+                //Add here the function to call
+                break;
             default:
                 printError('missing',"Not valid Argument found for -action");
         }
