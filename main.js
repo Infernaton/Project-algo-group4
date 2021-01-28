@@ -81,7 +81,7 @@ if (args[0] == '-save'){
                 }else{
                     //If no error, then we can apply the function
                     toLog.log()
-                    //Add here the function to call
+                    sort.title(entry,out)
                 }
                 break;
 
