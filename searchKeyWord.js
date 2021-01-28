@@ -20,7 +20,22 @@ module.exports = {
                     }
                 }
             } 
-            console.log(result);
+            console.log(recent(result));
         });
+        //All the code between the parenthesis is playing when the reading of the file is complete
+    },
+}
+function recent(data){
+    let top = 0;    //The most value for the Date
+    let mostIndex;
+    for(a=0; a<data.length; a++){
+        currentDate = data[a].release_date;
+        if(currentDate != null){
+            if (currentDate > top){
+                top = currentDate;  //If the current value is superior than the top value, that mean the the current movies is the most recent
+                mostIndex = a;
+            }
+        }
     }
+    return data[mostIndex];
 }
