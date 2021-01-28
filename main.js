@@ -108,7 +108,10 @@ if (args[0] == '-save'){
                     search.keyWord(entry, key_word, genre, savePicture);
                 }
                 break;
-
+            case 'color':
+                toLog.log();
+                //Add here the function to call
+                break;
             default:
                 printError('missing',"Not valid Argument found for -action");
         }
