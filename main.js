@@ -1,10 +1,8 @@
-//let say =  require('./module');
-//let hello = say.hello();
-//console.log(hello);
 let toLog = require('./log');
 let search = require('./searchKeyWord');
 let file = require('./modiFile');
 let sort = require('./sortData');
+//Import of all function we need
 
 console.log(""); //Used to jump the first line
 
