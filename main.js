@@ -95,7 +95,7 @@ if (args[0] == '-save'){
                 }else{
                     //If no error, then we can apply the function
                     toLog.log()
-                    searchDate.toSearch(entry,year);
+                    searchDate.toSearch(entry, year, sorted);
                 }
                 break;
 
