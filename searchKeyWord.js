@@ -2,6 +2,9 @@ file = require("./modiFile");
 
 module.exports = {
     keyWord: function(fileName, word, genre, savePicture){
+
+        console.time("function keyWord");
+
         let result = [];
         data = file.read(fileName, function(err, data){
             for (i=0; i<=data.length-1; i++){
@@ -27,11 +30,15 @@ module.exports = {
                 let toWrite = result.title + " : " + result.poster
                 file.write(savePicture,toWrite)
             }
+
+            console.timeEnd("function keyWord");
+
         });
         //All the code between the parenthesis is playing when the reading of the file is complete
     },
 }
 function recent(data){
+
     let top = 0;    //The most value for the Date
     let mostIndex;
     for(a=0; a<data.length; a++){

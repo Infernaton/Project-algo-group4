@@ -4,6 +4,8 @@ module.exports = {
     date : function(fileName,out){
         data = file.read(fileName, function(err, data){
 
+            console.time("function sortDate");
+
             // a first loop to sort the values
 
             for ( let i = 0; i < data.length; i++){
@@ -32,6 +34,8 @@ module.exports = {
                      console.log(data[l].release_date)
                 }
             }
+
+            console.timeEnd("function sortDate");
         });
     }
 }
@@ -40,6 +44,8 @@ module.exports = {
 module.exports = {
     title : function(out,fileName){
         data = file.read(fileName, function(err, data){
+
+            console.time("function sortTitle");
 
             // a first loop to sort the values
 
@@ -69,6 +75,9 @@ module.exports = {
                      console.log(data[l].title)
                 }
             }
+
+            console.timeEnd("function sortTitle");
+
         });
     }
 }
