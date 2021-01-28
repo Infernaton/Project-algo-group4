@@ -3,6 +3,9 @@ file = require("./modiFile");
 module.exports = {
     date : function(out,fileName){
         data = file.read(fileName, function(err, data){
+
+            // a first loop to sort the values
+
             for ( let i = 0; i < data.length; i++){
                 let min = i;
                 let tabDate = data[i].release_date;
@@ -13,11 +16,16 @@ module.exports = {
                         }
                         
                     }
+
+                    // exchanges the place of the two values
+
                     let tmp = data[i].release_date;
                     data[i].release_date = data[min].release_date
                     data[min].release_date = tmp    
                 }
             }
+
+            // a second loop to display the sorted values
     
             for (l = 0 ; l < data.length; l++){
                 if (data[l].release_date != null){
