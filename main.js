@@ -3,6 +3,7 @@ let search = require('./searchKeyWord');
 let file = require('./modiFile');
 let sort = require('./sortData');
 let searchDate = require("./search_film");
+let color = require("./colorMoy");
 //Import of all function we need
 
 console.log(""); //Used to jump the first line
@@ -111,7 +112,7 @@ if (args[0] == '-save'){
                 break;
             case 'color':
                 toLog.log();
-                //Add here the function to call
+                color.average(entry);
                 break;
             default:
                 printError('missing',"Not valid Argument found for -action");
