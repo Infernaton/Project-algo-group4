@@ -36,15 +36,17 @@ function printError(type,msg){
 
 let args = process.argv.splice(2); //To remove useless args like the path file of node.exe and main.js
 let indent = 0;
+let savePicture = "";
 
 console.log(args);
 console.log('');
 
 if (args[0] == '-save'){
     indent = 2; // Because '-save' is optional and it placed before the 'action', we need to indent all the position of the args
+    savePicture = args[1];
 
 } if (args[0+indent]== '-action'){
-    let entry = args[2]; //To know the files entry where the movies are
+    let entry = args[2+indent]; //To know the files entry where the movies are
     let out;
     if (entry == null){
         printError('missing',"No Entry Specified");
@@ -105,7 +107,7 @@ if (args[0] == '-save'){
                 }else{
                     //If no error, then we can apply the function
                     toLog.log()
-                    search.keyWord(entry, key_word, genre);
+                    search.keyWord(entry, key_word, genre, savePicture);
                 }
                 break;
 
