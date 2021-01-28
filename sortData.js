@@ -1,7 +1,7 @@
 file = require("./modiFile");
 
 module.exports = {
-    date : function(out,fileName){
+    date : function(fileName,out){
         data = file.read(fileName, function(err, data){
 
             // a first loop to sort the values
