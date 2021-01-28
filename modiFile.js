@@ -11,7 +11,7 @@ module.exports = {
     write: function(filePath, data){
         data = JSON.stringify(data, null, '\t');
         fs.writeFile(filePath,data,function(err) {
-            if(err) return console.error(err);
+            if(err) return callback(err);
             console.log('Done.');
             })
     },
@@ -24,7 +24,10 @@ module.exports = {
                 }
             }
             console.log(data[0])
-            this.write(fileOut, data);
+            
+            //I don't know but it doesn't recognise the 'write' function above so i juste rewrite it here
+            data = JSON.stringify(data, null, '\t');
+            fs.writeFileSync(fileOut,data);
         });
     }
 }
