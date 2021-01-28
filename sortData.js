@@ -1,5 +1,5 @@
 module.exports = {
-    sortDate : function(entry,out,fileName){
+    date : function(entry,out,fileName){
         data = file.read(fileName, function(err, data){
             console.log(typeof data);
         });

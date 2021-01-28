@@ -4,6 +4,7 @@
 let toLog = require('./log');
 let search = require('./searchKeyWord');
 let file = require('./modiFile');
+let sort = require('./sortData');
 
 console.log(""); //Used to jump the first line
 
@@ -34,21 +35,25 @@ function printError(type,msg){
 }
 
 let args = process.argv.splice(2); //To remove useless args like the path file of node.exe and main.js
+let indent = 0;
 
 console.log(args);
 console.log('');
 
-if (args[0]== '-action'){
+if (args[0] == '-save'){
+    indent = 2; // Because '-save' is optional and it placed before the 'action', we need to indent all the position of the args
+
+} if (args[0+indent]== '-action'){
     let entry = args[2]; //To know the files entry where the movies are
     let out;
     if (entry == null){
         printError('missing',"No Entry Specified");
 
     }else{
-        switch (args[1]) {
+        switch (args[1+indent]) {
 
             case 'transform':
-                out = args[3];
+                out = args[3+indent];
                 if (out == null){
                     printError("missing","No exit found");
                 }else{
@@ -59,17 +64,18 @@ if (args[0]== '-action'){
                 break;
 
             case 'sort_date':
-                out = args[3];
+                out = args[3+indent];
                 if (out == null){
                     printError("missing","No exit found");
                 }else {
                     console.log("Sorting by Date the specified file content.");
                     toLog.log()
+                    sort.date(entry, out)
                 }
                 break;
 
             case 'sort_title':
-                out = args[3];
+                out = args[3+indent];
                 if (out == null){
                     printError("missing","No exit found");
                 }else{
@@ -80,8 +86,8 @@ if (args[0]== '-action'){
                 break;
 
             case 'search_date':
-                let year = args[3];
-                let sorted = args[4];
+                let year = args[3+indent];
+                let sorted = args[4+indent];
                 if (year == null || sorted == null){
                     printError("missing","");
                 }else{
@@ -92,8 +98,8 @@ if (args[0]== '-action'){
                 break;
 
             case 'search_key_word':
-                let key_word = args[3];
-                let genre = args[4];
+                let key_word = args[3+indent];
+                let genre = args[4+indent];
                 if (key_word == null || genre == null){
                     printError("missing","")
                 }else{
