@@ -1,6 +1,9 @@
 //let say =  require('./module');
 //let hello = say.hello();
 //console.log(hello);
+let toLog = require('./log');
+let search = require('./searchKeyWord');
+let file = require('./modiFile');
 
 console.log(""); //Used to jump the first line
 
@@ -31,7 +34,7 @@ function printError(type,msg){
 }
 
 let args = process.argv.splice(2); //To remove useless args like the path file of node.exe and main.js
-//let file = require('modiFile');
+
 console.log(args);
 console.log('');
 
@@ -50,7 +53,8 @@ if (args[0]== '-action'){
                     printError("missing","No exit found");
                 }else{
                     console.log("Transforming, in specified file, the title movie.");
-                    //Add here the function to call
+                    toLog.log();
+                    file.transform(entry, out);
                 }
                 break;
 
@@ -58,9 +62,9 @@ if (args[0]== '-action'){
                 out = args[3];
                 if (out == null){
                     printError("missing","No exit found");
-                }else{
+                }else {
                     console.log("Sorting by Date the specified file content.");
-                    //Add here the function to call
+                    toLog.log()
                 }
                 break;
 
@@ -70,6 +74,7 @@ if (args[0]== '-action'){
                     printError("missing","No exit found");
                 }else{
                     console.log("Sorting by Title the specified file content.");
+                    toLog.log()
                     //Add here the function to call
                 }
                 break;
@@ -81,6 +86,7 @@ if (args[0]== '-action'){
                     printError("missing","");
                 }else{
                     console.log("Search for the movies with the specified Date in the current file.");
+                    toLog.log()
                     //Add here the function to call
                 }
                 break;
@@ -92,7 +98,8 @@ if (args[0]== '-action'){
                     printError("missing","")
                 }else{
                     console.log("Search for key word in the description's movie in the specified file.");
-                    //Add here the function to call
+                    toLog.log()
+                    search.keyWord(entry, key_word, genre);
                 }
                 break;
 
