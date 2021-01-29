@@ -1,7 +1,7 @@
 let search = require('./js/searchKeyWord');
-let file = require('./modiFile');
-let sort = require('./sortData');
-let searchDate = require("./search_film");
+let file = require('./js/modiFile');
+let sort = require('./js/sortData');
+let searchDate = require("./js/search_film");
 let color = require("./js/colorMoy");
 //Import of all function we need
 

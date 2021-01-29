@@ -1,4 +1,4 @@
-const file = require("../modiFile");
+const file = require("./modiFile");
 const dl = require('image-downloader');
 
 module.exports = {
