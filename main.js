@@ -91,7 +91,7 @@ if (args[0] == '-save'){
                     printError("missing","Year or the type of sort argument not found");
                 }else{
                     //If no error, then we can apply the function
-                    searchDate.toSearch(entry, year, sorted);
+                    searchDate.toSearch(entry, year, sorted, savePicture);
                 }
                 break;
 

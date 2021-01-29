@@ -1,10 +1,11 @@
 file = require("./modiFile");
 const { strict } = require("assert");
 const fs = require('fs')
+const dl = require('image-downloader');
 // Imported files below
 
 module.exports = {
-    toSearch : function(fileName ,year,sorted) {
+    toSearch : function(fileName, year, sorted, savePicture) {
         console.time("\nexecution time : ");
         let fichier = fs.readFileSync(fileName)
         // To parse JSON file
@@ -25,14 +26,31 @@ module.exports = {
                         //Algorithm to sort the title here.....
                         fs.writeFileSync('sorted_title.txt', displayTitle)
                     } else if(sorted == "false") {
-                        result.push(displayTitle)
+                        result.push(movies[i])
+                        // We dislay according to conditions the result
+                        console.log(result.title)
                     } 
                 }
             } 
         }
-        // We dislay according to conditions the result
-        console.log(result)
-        // We calculate the time
+        
         console.timeEnd("\nexecution time : ")
-    }     
+
+        //If -save is used
+        if (savePicture != ""){
+            for(i = 0; i< result.length; i++){
+                const options = {
+                    url : result[i].poster,
+                    dest : savePicture
+                }
+                //Use to download the picture we want
+                dl.image(options)
+                    .then(({ filename }) => {
+                        console.log('__Save to', filename)
+                    })
+                    .catch((err) => console.error(err))
+            }
+            file.write(savePicture+"/listMovie.json",result)
+        }
+    }
 }
