@@ -28,7 +28,6 @@ module.exports = {
                     data[i].title += ' (' + year +')';
                 }
             }
-            console.log(data[0])
             
             //I don't know but it doesn't recognise the 'write' function above so i juste rewrite it here
             data = JSON.stringify(data, null, '\t');
