@@ -13,8 +13,8 @@ module.exports = {
                 let description = data[i].overview.split(' ') //We split the string into an Array
                 if (movieGenre != null){
                     for (a=0; a < movieGenre.length; a++){
+                        //Search by the genre
                         if (movieGenre[a] == genre){
-                            //Search by the genre
                             for (e=0; e < description.length; e++){
                                 //Search by the key word
                                 if (description[e] == word){

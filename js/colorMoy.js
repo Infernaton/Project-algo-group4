@@ -9,6 +9,7 @@ module.exports = {
             let blue = 0;
             let green = 0;
             let alpha = 0;
+
             files.forEach(async file => {
                 let image = folderPath+"/"+file
                 let picture = await Jimp.read(image) //Waiting for the reading of the picture to analyse
