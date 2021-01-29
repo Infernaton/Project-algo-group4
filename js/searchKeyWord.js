@@ -10,10 +10,12 @@ module.exports = {
         data = file.read(fileName, function(err, data){
             for (i=0; i<=data.length-1; i++){
                 let movieGenre = data[i].genres;
-                let description = data[i].overview.split(' ')
+                let description = data[i].overview.split(' ') //We split the string into an Array
                 if (movieGenre != null){
+                    //Search by the genre
                     for (a=0; a < movieGenre.length; a++){
                         if (movieGenre[a] == genre){
+                            //Search by the key word
                             for (e=0; e < description.length; e++){
                                 if (description[e] == word){
                                     result.push(data[i]);
@@ -28,6 +30,8 @@ module.exports = {
 
             result = recent(result)
             console.log(result);
+
+            //If -save is used
             if (savePicture != ""){
                 file.write(savePicture+"/listMovie.json",result)
 
@@ -35,6 +39,7 @@ module.exports = {
                     url : result.poster,
                     dest : savePicture
                 }
+                //Use to download the picture we want
                 dl.image(options)
                     .then(({ filename }) => {
                         console.log('__Save to', filename)
