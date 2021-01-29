@@ -28,7 +28,7 @@ module.exports = {
                     } else if(sorted == "false") {
                         result.push(movies[i])
                         // We dislay according to conditions the result
-                        console.log(result.title)
+                        console.log(movies[i].title)
                     } 
                 }
             } 
