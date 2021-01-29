@@ -4,7 +4,7 @@ const dl = require('image-downloader');
 module.exports = {
     keyWord: function(fileName, word, genre, savePicture){
 
-        console.time("Searching for a key word");
+        console.time("__Searching for a key word");
 
         let result = [];
         data = file.read(fileName, function(err, data){
@@ -27,22 +27,18 @@ module.exports = {
             result = recent(result)
             console.log(result);
             if (savePicture != ""){
-                //By default savePicture = "", so if the value isn't modify, it means there no need to save the picture
-                //let toWrite = [{"title": result.title, "poster": result.poster}];
-                console.log(result.poster)
-
                 const options = {
                     url : result.poster,
                     dest : savePicture
                 }
                 dl.image(options)
                     .then(({ filename }) => {
-                        console.log('Save to', filename)
+                        console.log('__Save to', filename)
                     })
                     .catch((err) => console.error(err))
             }
 
-            console.timeEnd("Searching for a key word");
+            console.timeEnd("__Searching for a key word");
 
         });
         //All the code between the parenthesis is playing when the reading of the file is complete
