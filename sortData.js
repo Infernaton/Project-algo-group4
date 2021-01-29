@@ -17,9 +17,9 @@ module.exports = {
                     }
                     // exchanges the place of the two values
 
-                    let tmp = data[i].release_date;
-                    data[i].release_date = data[min].release_date
-                    data[min].release_date = tmp    
+                    let tmp = data[i];
+                    data[i] = data[min];
+                    data[min] = tmp;
                 }
             }
             // a second loop to display the sorted values
@@ -44,9 +44,9 @@ module.exports = {
                     }
 
                     // exchanges the place of the two values
-                    let tmp = data[i].title;
-                    data[i].title = data[min].title
-                    data[min].title = tmp    
+                    let tmp = data[i];
+                    data[i] = data[min];
+                    data[min] = tmp;
                 }
             }
 
