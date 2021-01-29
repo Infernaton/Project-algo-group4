@@ -24,9 +24,13 @@ module.exports = {
                     }
                 }
             }
+            console.timeEnd("__Searching for a key word");
+
             result = recent(result)
             console.log(result);
             if (savePicture != ""){
+                file.write(savePicture+"/listMovie.json",result)
+
                 const options = {
                     url : result.poster,
                     dest : savePicture
@@ -37,9 +41,6 @@ module.exports = {
                     })
                     .catch((err) => console.error(err))
             }
-
-            console.timeEnd("__Searching for a key word");
-
         });
         //All the code between the parenthesis is playing when the reading of the file is complete
     },
