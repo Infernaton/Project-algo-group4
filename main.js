@@ -1,4 +1,3 @@
-let toLog = require('./log');
 let search = require('./searchKeyWord');
 let file = require('./modiFile');
 let sort = require('./sortData');
@@ -61,7 +60,6 @@ if (args[0] == '-save'){
                     printError("missing","No exit found");
                 }else{
                     //If no error, then we can apply the function
-                    toLog.log();
                     file.transform(entry, out);
                 }
                 break;
@@ -72,7 +70,6 @@ if (args[0] == '-save'){
                     printError("missing","No exit found");
                 }else {
                     //If no error, then we can apply the function
-                    toLog.log()
                     sort.date(entry, out)
                 }
                 break;
@@ -83,7 +80,6 @@ if (args[0] == '-save'){
                     printError("missing","No exit found");
                 }else{
                     //If no error, then we can apply the function
-                    toLog.log()
                     sort.title(entry,out)
                 }
                 break;
@@ -95,7 +91,6 @@ if (args[0] == '-save'){
                     printError("missing","Year or the type of sort argument not found");
                 }else{
                     //If no error, then we can apply the function
-                    toLog.log()
                     searchDate.toSearch(entry, year, sorted);
                 }
                 break;
@@ -107,12 +102,10 @@ if (args[0] == '-save'){
                     printError("missing","Key word or the genre of the movie not define")
                 }else{
                     //If no error, then we can apply the function
-                    toLog.log()
                     search.keyWord(entry, key_word, genre, savePicture);
                 }
                 break;
             case 'color':
-                toLog.log();
                 color.average(entry);
                 break;
             default:

@@ -4,7 +4,7 @@ const dl = require('image-downloader');
 module.exports = {
     keyWord: function(fileName, word, genre, savePicture){
 
-        console.time("function keyWord");
+        console.time("Searching for a key word");
 
         let result = [];
         data = file.read(fileName, function(err, data){
@@ -42,7 +42,7 @@ module.exports = {
                     .catch((err) => console.error(err))
             }
 
-            console.timeEnd("function keyWord");
+            console.timeEnd("Searching for a key word");
 
         });
         //All the code between the parenthesis is playing when the reading of the file is complete

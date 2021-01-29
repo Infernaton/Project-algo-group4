@@ -1,7 +1,4 @@
 const Jimp = require("jimp");
-const DepreciatedJimp = require("jimp");
-const { createBrotliCompress } = require("zlib");
-let file = require("./modiFile")
 
 module.exports = {
     average: function(folderPath){
