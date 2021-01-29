@@ -29,7 +29,8 @@ module.exports = {
             console.timeEnd("__Searching for a key word");
 
             result = recent(result)
-            console.log(result);
+            let date = ~~(result.release_date/(3600*24*365)) + 1970;
+            console.log("The most recent movie ("+date+") wich the description contains the word '"+word+"' and wich is a "+genre+" movie is :\n"+ result.title);
 
             //If -save is used
             if (savePicture != ""){
