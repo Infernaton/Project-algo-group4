@@ -20,7 +20,7 @@ module.exports = {
             console.timeEnd("__Writing File");
     },
     transform: function(fileName, fileOut){
-        console.time("__Transform the title");
+        console.time("Transform the title");
         data = this.read(fileName, function(err, data){
             for(i=0; i < data.length; i++){
                 year = ~~(data[i].release_date/(3600*24*365)) + 1970; //To transform the value in second to Year
@@ -28,11 +28,12 @@ module.exports = {
                     data[i].title += ' (' + year +')';
                 }
             }
+            console.log(data[0])
             
             //I don't know but it doesn't recognise the 'write' function above so i juste rewrite it here
             data = JSON.stringify(data, null, '\t');
             fs.writeFileSync(fileOut,data);
         });
-        console.timeEnd("__Transform the title");
+        console.timeEnd("Transform the title");
     }
 }
