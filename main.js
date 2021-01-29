@@ -92,7 +92,7 @@ if (args[0] == '-save'){
                 let year = args[3+indent];
                 let sorted = args[4+indent];
                 if (year == null || sorted == null){
-                    printError("missing","");
+                    printError("missing","Year or the type of sort argument not found");
                 }else{
                     //If no error, then we can apply the function
                     toLog.log()
@@ -104,7 +104,7 @@ if (args[0] == '-save'){
                 let key_word = args[3+indent];
                 let genre = args[4+indent];
                 if (key_word == null || genre == null){
-                    printError("missing","")
+                    printError("missing","Key word or the genre of the movie not define")
                 }else{
                     //If no error, then we can apply the function
                     toLog.log()
