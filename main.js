@@ -1,8 +1,8 @@
-let search = require('./searchKeyWord');
+let search = require('./js/searchKeyWord');
 let file = require('./modiFile');
 let sort = require('./sortData');
 let searchDate = require("./search_film");
-let color = require("./colorMoy");
+let color = require("./js/colorMoy");
 //Import of all function we need
 
 console.log(""); //Used to jump the first line
