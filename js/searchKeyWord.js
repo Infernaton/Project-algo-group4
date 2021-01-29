@@ -12,11 +12,11 @@ module.exports = {
                 let movieGenre = data[i].genres;
                 let description = data[i].overview.split(' ') //We split the string into an Array
                 if (movieGenre != null){
-                    //Search by the genre
                     for (a=0; a < movieGenre.length; a++){
                         if (movieGenre[a] == genre){
-                            //Search by the key word
+                            //Search by the genre
                             for (e=0; e < description.length; e++){
+                                //Search by the key word
                                 if (description[e] == word){
                                     result.push(data[i]);
                                     break;
