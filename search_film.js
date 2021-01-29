@@ -1,8 +1,10 @@
 file = require("./modiFile");
+const { strict } = require("assert");
 const fs = require('fs')
 
 module.exports = {
     toSearch : function(fileName ,year,sorted) {
+        console.time("\nexecution time : ");
         let fichier = fs.readFileSync(fileName)
         let movies = JSON.parse(fichier)
         let result = [];
@@ -11,26 +13,24 @@ module.exports = {
             let searchYear = ~~(searchSecondsToYear/(3600*24*365)) + 1970;
             if (searchYear != null) {
                 if(searchYear == year) {
-                    result.push(movies[i].title)
+                    let displayTitle = movies[i].title
+                    if(sorted == "true") {
+                        //Algorithme pour trier le tableau ici
+                        
+
+                    } else if(sorted == "false") {
+                        result.push(displayTitle)
+                    }
                 }
             } 
         }
         console.log(result)
-         
-        if(sorted == "true") {
-            console.log("done")
-            //return algo ;
-            
-            //for(i=movies.length-1;i>=1;i--){
-                // tri par alphabet
-            //}
-             
-        } else if(sorted == "false") {
-                return null;
-        } else {
-            console.log("\nerror, please to retype")
-        }
-        
+        console.timeEnd("\nexecution time : ")
+
+        function strSort(a) {
+            return a.sort(function(x,y) {
+              return x.toString().localeCompare(y.toString());
+            });
+          }
     }     
 }
-
