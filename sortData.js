@@ -51,7 +51,7 @@ module.exports = {
             }
 
             // a second loop to display the sorted values
-            file.write(out, data[l])
+            file.write(out, data)
             console.timeEnd("Sort title");
         });
     }
