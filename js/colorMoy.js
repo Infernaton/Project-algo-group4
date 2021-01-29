@@ -2,13 +2,13 @@ const Jimp = require("jimp");
 
 module.exports = {
     average: function(folderPath){
-        console.time("\nCalcul of the average color")
+        console.time("Calcul of the average color")
+        let allColor = [];
+        let red = 0;
+        let blue = 0;
+        let green = 0;
+        let alpha = 0;
         fs.readdir(folderPath, async function(err, files){
-            let allColor = [];
-            let red = 0;
-            let blue = 0;
-            let green = 0;
-            let alpha = 0;
 
             files.forEach(async file => {
                 let image = folderPath+"/"+file
@@ -32,16 +32,18 @@ module.exports = {
                                 alpha =alpha + currentColor.a;
                             }
                         }
-                        //Calcul of the average color
+                                        //Calcul of the average color
                         let averageColor = [red/allColor.length, green/allColor.length, blue/allColor.length, alpha/allColor.length];
                         console.log("Average color of '"+folderPath+"' folder :")
                         console.log(averageColor);
-                        console.timeEnd("\nCalcul of the average color")
+                        
+                        
                     }
                 }catch(e){
-                    console.log('')
+                    console.log(' ')
                 }
             });
+            console.timeEnd("Calcul of the average color")
         });
     }
 }
