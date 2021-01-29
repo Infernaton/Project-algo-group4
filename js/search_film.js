@@ -17,7 +17,7 @@ module.exports = {
             // We pick up the browsed element 
             let searchSecondsToYear = movies[i].release_date
             // We convert the seconds in year
-            let searchYear = new Date(searchSecondsToYear * 1000).getFullYear()
+            let searchYear = ~~(searchSecondsToYear/(3600*24*365)) + 1970;
             if (searchYear != null) {
                 // If the the typed year is true
                 if(searchYear == year) {
