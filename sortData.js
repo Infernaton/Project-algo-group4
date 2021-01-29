@@ -1,13 +1,11 @@
-file = require("./modiFile");
+const file = require("./modiFile");
 
 module.exports = {
     date : function(fileName,out){
         data = file.read(fileName, function(err, data){
-
-            console.time("function sortDate");
+            console.time("Sort date");
 
             // a first loop to sort the values
-
             for ( let i = 0; i < data.length; i++){
                 let min = i;
                 let tabDate = data[i].release_date;
@@ -16,9 +14,7 @@ module.exports = {
                         if(data[j].release_date < data[min].release_date){
                             min = j;
                         }
-                        
                     }
-
                     // exchanges the place of the two values
 
                     let tmp = data[i].release_date;
@@ -26,29 +22,17 @@ module.exports = {
                     data[min].release_date = tmp    
                 }
             }
-
             // a second loop to display the sorted values
-    
-            for (l = 0 ; l < data.length; l++){
-                if (data[l].release_date != null){
-                     console.log(data[l].release_date)
-                }
-            }
-
-            console.timeEnd("function sortDate");
+            file.write(out, data)
+            
+            console.timeEnd("Sort date");
         });
-    }
-}
-
-
-module.exports = {
-    title : function(out,fileName){
+    },
+    title : function(fileName,out){
         data = file.read(fileName, function(err, data){
-
-            console.time("function sortTitle");
+            console.time("Sort title");
 
             // a first loop to sort the values
-
             for ( let i = 0; i < data.length; i++){
                 let min = i;
                 let tabTitle = data[i].title;
@@ -57,11 +41,9 @@ module.exports = {
                         if(data[j].title < data[min].title){
                             min = j;
                         }
-                        
                     }
 
                     // exchanges the place of the two values
-
                     let tmp = data[i].title;
                     data[i].title = data[min].title
                     data[min].title = tmp    
@@ -69,16 +51,8 @@ module.exports = {
             }
 
             // a second loop to display the sorted values
-    
-            for (l = 0 ; l < data.length; l++){
-                if (data[l].title != null){
-                     console.log(data[l].title)
-                }
-            }
-
-            console.timeEnd("function sortTitle");
-
+            file.write(out, data[l])
+            console.timeEnd("Sort title");
         });
     }
 }
-
