@@ -40,7 +40,6 @@ module.exports = {
                         let averageColor = [red/allColor.length, green/allColor.length, blue/allColor.length, alpha/allColor.length];
                         console.log(averageColor);
                     }
- 
                 }
             }else{
                 console.log("File has too much data in it, Out of Memory")

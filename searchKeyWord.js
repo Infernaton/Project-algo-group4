@@ -1,4 +1,5 @@
-file = require("./modiFile");
+const file = require("./modiFile");
+const dl = require('image-downloader');
 
 module.exports = {
     keyWord: function(fileName, word, genre, savePicture){
@@ -27,8 +28,18 @@ module.exports = {
             console.log(result);
             if (savePicture != ""){
                 //By default savePicture = "", so if the value isn't modify, it means there no need to save the picture
-                let toWrite = [{"title": result.title, "poster": result.poster}]
-                file.write(savePicture,toWrite)
+                //let toWrite = [{"title": result.title, "poster": result.poster}];
+                console.log(result.poster)
+
+                const options = {
+                    url : result.poster,
+                    dest : savePicture
+                }
+                dl.image(options)
+                    .then(({ filename }) => {
+                        console.log('Save to', filename)
+                    })
+                    .catch((err) => console.error(err))
             }
 
             console.timeEnd("function keyWord");
